@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Demo, SortingMethod
+from .models import Demo
 
 admin.site.register(Demo)
-admin.site.register(SortingMethod)

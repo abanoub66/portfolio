@@ -1,10 +1,11 @@
 {% extends 'base_layout.html' %}
 {% block content %}
     <h1>Sorting List</h1>
+    <h2>How would you like to sort {{ current }}?</h2>
     <div class="sorts">
         {% for sort in sorts %}
             <div class="sort">
-                <h2>sort.sorting_method</h2>
+                <h2>{{ sort }}</h2>
             </div>
         {% endfor %}
     </div>
