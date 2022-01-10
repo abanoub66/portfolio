@@ -2,7 +2,7 @@
 {% block content %}
     <div class="create-number-list">
         <h2>Create your number list bro</h2>
-        <form class="site-form" action="{% url 'number_list:create' %}" method="post" enctype="multipart/form-data">
+        <form class="site-form" action="{% url 'number_list_create' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}
             <input type="submit" value="Create">

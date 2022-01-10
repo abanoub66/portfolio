@@ -1,0 +1,11 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+    <h1>Previous Demos List</h1>
+    <div class="demos">
+        {% for demo in demos %}
+            <div class="d">
+                <h2><a href="#">{{ demo.number_list }}</a></h2>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

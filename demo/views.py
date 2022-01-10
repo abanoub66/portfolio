@@ -11,10 +11,10 @@ def number_list_create(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.save()
-            return redirect('demo:sorting_list')
-        else:
-            form = forms.CreateNumberList()
-        return render(request, "demo/number_list_create.html", {'form': form})
+            return redirect('sorting_list')
+    else:
+        form = forms.CreateNumberList()
+    return render(request, "demo/number_list_create.html", {'form': form})
 
 
 def sorting_list(request):
@@ -23,5 +23,5 @@ def sorting_list(request):
 
 
 def previous_demos(request):
-    previous = Demo.objects.all()
-    return render(request, "demo/previous_demos.html", {'previous_demos': previous})
+    demos = Demo.objects.all()
+    return render(request, "demo/previous_demos.html", {'demos': demos})
