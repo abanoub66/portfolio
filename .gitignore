@@ -2,3 +2,4 @@ venv
 demo/migrations
 db.sqlite3
 demo/JavaSortingMethods
+assets/Resume.pdf
