@@ -1,7 +1,8 @@
-{% extends 'base_layout.html' %}
-{% block content %}
+{% extends 'demo/demo_layout.html' %}
+{% block democontent %}
     <h2>Sort</h2>
     <p>{{ current }}</p>
     <p>{{ sort }}</p>
     <p>{{ display }}</p>
+    <a class="nav-link active" href="{% url 'number_list_create' %}">Back to the Beginning</a>
 {% endblock %}
