@@ -1,0 +1,12 @@
+{% extends 'demo/demo_layout.html' %}
+{% block democontent %}
+    <h1>Sorting List</h1>
+    <h2>How would you like to sort {{ current }}?</h2>
+    <div class="sorts">
+        {% for sort in sorts %}
+            <div class="sort">
+                <h2><a href="{{ request.get_full_path }}/sort/{{ sort }}">{{ sort }}</a></h2>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

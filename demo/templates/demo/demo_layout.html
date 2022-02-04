@@ -1,0 +1,23 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'about' %}">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Database (Still Working on It)</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Game (Still Working on It)</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">AI/ML Schtuff (yeah... Still Working on It)</a>
+        </li>
+    </ul>
+    </div>
+    <a id = "prev" class="nav_link active" style="padding-top: 30px;display:inline-block;"
+       href="{% url 'previous_demos' %}">Previous Demos</a>
+    <div class="container">
+    {% block democontent %}
+    {% endblock %}
+{% endblock %}

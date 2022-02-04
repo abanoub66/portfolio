@@ -1,0 +1,55 @@
+{% extends 'demo/demo_layout.html' %}
+{% block democontent %}
+    </body>
+    <script type='text/javascript'>
+        function load() {
+            const container = document.getElementById('con');
+            for (let i = 0; i < 5; i++) {
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.name = 'index' + i;
+                container.appendChild(input);
+            }
+        }
+    </script>
+    <script type='text/javascript'>
+        function addField() {
+            const container = document.getElementById('con');
+            const index = document.getElementById('index');
+            let i = parseInt(index.value) + 1;
+            index.value = '' + i;
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.name = 'index' + i;
+            container.appendChild(input);
+        }
+    </script>
+    <script type='text/javascript'>
+        function subtractField() {
+            const container = document.getElementById('con');
+            const index = document.getElementById('index');
+            let i = parseInt(index.value);
+            if (i > 4) {
+                i -= 1;
+                index.value = '' + i;
+                if (container.hasChildNodes()) {
+                    container.removeChild(container.lastChild);
+                }
+            }
+        }
+    </script>
+    <body onload="load()">
+    <div class="container">
+        <div class="create-number-list">
+            <h2>Create your number list bro (min size: 5)</h2>
+            <form class="site-form" action="{% url 'number_list_create' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div id="con"></div>
+                <a href="#" id="add" onclick="addField()">+</a>
+                <a href="#" id="subtract" onclick="subtractField()">-</a>
+                <input type="hidden" id="index" name="index" value="4">
+                <input type="submit" value="Create">
+            </form>
+        </div>
+    </div>
+{% endblock %}

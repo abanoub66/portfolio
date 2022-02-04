@@ -1,3 +1,5 @@
 venv
 demo/migrations
 db.sqlite3
+assets/Resume.pdf
+*.class

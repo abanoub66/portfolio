@@ -1,0 +1,20 @@
+{% extends 'demo/demo_layout.html' %}
+{% block democontent %}
+    </body>
+    <script type='text/javascript'>
+        function changePrev() {
+            const prev = document.getElementById('prev');
+            prev.innerHTML = "Create New Demo";
+            prev.href = "number_list_create";
+        }
+    </script>
+    <body onload="changePrev()">
+    <h1>Previous Demos List</h1>
+    <div class="demos">
+        {% for demo in demos %}
+            <div class="d">
+                <h2><a href="sorting_list/{{ demo.number_list }}">{{ demo.number_list }}</a></h2>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
