@@ -1,0 +1,21 @@
+{% extends 'library_db/library_db_layout.html' %}
+{% block librarycontent %}
+    <h1>Book Copies</h1>
+    <h2>Click on one to remove it from circulation</h2>
+    <div class="copies">
+        {% for copy in copies %}
+            <div class="copies">
+                <form class="nav-link active" action="{% url 'library_db:delete_copy' book copy %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">{{ copy }}</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+    <h2>Click the below button to add a new book</h2>
+    <form class="nav_link active" action="{% url 'library_db:add_new_copy' book %}" method="post">
+        {% csrf_token %}
+        <button type="submit">+</button>
+    </form>
+    <h4><a href="{% url 'library_db:librarian_book_list' %}">Back To Book List</a></h4>
+{% endblock %}

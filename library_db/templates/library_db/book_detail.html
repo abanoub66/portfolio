@@ -1,0 +1,26 @@
+{% extends 'library_db/library_db_layout.html' %}
+{% block librarycontent %}
+    <h1>Book Detail</h1>
+    <h2>Title: {{ book.title }}</h2>
+    <h2>Author: {{ book.author }}</h2>
+    <h2>Published by: {{ book.publisher }}</h2>
+    <h2>Published on: {{ book.publish_date }}</h2>
+    <h2>Number of Pages: {{ book.number_of_pages }}</h2>
+    <h1>Book Copies</h1>
+    <div class="copies">
+        {% for copy in copies %}
+            <div class="d">
+            {% if copy.book_in %}
+                <h2><a href="{% url 'library_db:checkout' copy %}">{{ copy }}</a></h2>
+            {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    {% if out_copies is not None %}
+        <h2>Would you like to check in any of the following?</h2>
+        {% for out_copy in out_copies %}
+            <h3><a href="{% url 'library_db:checkin' out_copy %}">{{ out_copy }}</a></h3>
+        {% endfor %}
+    {% endif %}
+    <h4><a href="{% url 'library_db:book_list' %}">Back To Book List</a></h4>
+{% endblock %}

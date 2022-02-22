@@ -1,0 +1,29 @@
+{% extends 'library_db/library_db_layout.html' %}
+{% block librarycontent %}
+    <h3>Please be kind when demoing and only mess with a user you have created</h3>
+    <h1>Users</h1>
+    <h2>Click on one to make them a librarian</h2>
+    <div class="users">
+        {% for user in users %}
+            <div class="user">
+                <form class="nav-link active" action="{% url 'library_db:make_librarian' user %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">{{ user.first_name }} {{ user.last_name }}</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+    <h1>Librarians</h1>
+    <h2>Click on one to demote them to regular user status</h2>
+    <div class="librarians">
+        {% for librarian in librarians %}
+            <div class="librarian">
+                <form class="nav-link active" action="{% url 'library_db:delete_librarian' librarian %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">{{ librarian.librarian_id.first_name }} {{ librarian.librarian_id.last_name }}
+                    </button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

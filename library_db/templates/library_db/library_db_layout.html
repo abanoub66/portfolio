@@ -1,0 +1,36 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'about' %}">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'demo:number_list_create' %}">Demo</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Game (Still Working on It)</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">AI/ML Schtuff (yeah... Still Working on It)</a>
+        </li>
+    </ul>
+    <ul>
+        {% if user.is_authenticated %}
+            <li>
+                <form class="logout-link" action="{% url 'library_db:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
+        {% else %}
+            <li>
+                <a href="{% url 'library_db:login' %}">Login</a>
+            </li>
+            <li>
+                <a href="{% url 'library_db:signup' %}">Signup</a>
+            </li>
+        {% endif %}
+    </ul>
+    {% block librarycontent %}
+    {% endblock %}
+{% endblock %}
