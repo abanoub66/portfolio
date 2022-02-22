@@ -43,7 +43,7 @@ def sort(request, current, s):
     cmd = ['java', '-classpath', '.', 'Main'] + [s, current]
     proc = subprocess.Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=STDOUT)
     stdout, stderr = proc.communicate()
-    os.chdir('..\\..')
+    os.chdir('../..')
     display = stdout.decode('UTF-8')
     return render(request, "demo/sort_anim.html", {'current': current, 'sort': s, 'display': display})
 
