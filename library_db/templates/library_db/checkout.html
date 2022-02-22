@@ -1,0 +1,16 @@
+{% extends 'library_db/library_db_layout.html' %}
+{% block librarycontent %}
+    <h1>Would you like to check out {{ copy }}?</h1>
+    <h2>It will be due on {{ due_date }}</h2>
+    <form class="site_form" action="{% url 'library_db:checkout' copy %}" method="post">
+        {% csrf_token %}
+        <label for="librarian">Please select a Librarian:</label>
+        <select name="librarian" id="librarian">
+            {% for librarian in librarians %}
+                <option value="{{ librarian }}">{{ librarian }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

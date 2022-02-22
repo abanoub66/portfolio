@@ -21,7 +21,8 @@ public class Main {
             binarySearchTree.readTree();
         }
         if (method.equals("AvlTree")) {
-
+            AvlTree avlTree = new AvlTree(array);
+            avlTree.readTree();
         }
     }
 

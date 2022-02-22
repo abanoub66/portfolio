@@ -1,0 +1,12 @@
+{% extends 'library_db/library_db_layout.html' %}
+{% block librarycontent %}
+    <h1>Login</h1>
+    <form class="sit-form" action="{% url 'library_db:login'%}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
+        <input type = "submit" value="Login">
+    </form>
+{% endblock %}

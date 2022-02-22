@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'library_db.apps.LibraryDbConfig',
     'demo.apps.DemoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,6 +52,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
+LOGOUT_REDIRECT_URL = 'library_db:book_list'
 
 TEMPLATES = [
     {

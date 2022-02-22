@@ -1,0 +1,11 @@
+{% extends 'library_db/library_db_layout.html' %}
+{% block librarycontent %}
+    <div class="create-book">
+        <h2>Add New Book</h2>
+        <form class="site-form" action="{% url 'library_db:insert_book' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Create">
+        </form>
+    </div>
+{% endblock %}
