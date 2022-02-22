@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 
 from .models import Demo
 
-java_file_path = '..\\demo\\JavaSortingMethods'
+java_file_path = 'demo/JavaSortingMethods'
 
 
 def number_list_create(request):
