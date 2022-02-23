@@ -123,7 +123,6 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    '/var/www/static'
 ]
 
 STATIC_ROOT = '/var/www/44.235.164.145/static/'
